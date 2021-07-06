@@ -29,9 +29,13 @@
           <h5 class="pull-right">{{book.unitPrice | currency : 'INR'}}</h5>
           <p class="card-text text-truncates">{{book.description}}</p>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Add Cart</a>
+            <button class="btn btn-primary float-right">Add Cart</button>
           </div>
         </div>
+      </div>
+
+      <div *ngIf="books?.length == 0" class="col-md-12 alert alert-warning mt-3">
+        No Books Found
       </div>
 
       <!-- <div class="col-sm-4" *ngFor="let book of books">
