@@ -22,15 +22,17 @@
         </div>
       </div> -->
 
-      <div class="card col-sm-4 col-lg-4 col-md-4" style="width: 18rem;" *ngFor="let book of books">
-        <img [src]="book.imageUrl" class="card-img-top img-fluid">
-        <div class="card-body">
-          <h5 class="card-title"><a href="#">{{book.name}}</a></h5>
+      <div class="card card-columns mx-1 my-1" style="width: 20rem;" *ngFor="let book of books">
+        <a routerLink="/books/{{book.id}}">
+          <img [src]="book.imageUrl" class="card-img-top img-fluid">
+        </a>
+        <div class="card-body d-flex flex-column h-100">
+          <h5 class="card-title"><a routerLink="/books/{{book.id}}">{{book.name}}</a></h5>
           <h5 class="pull-right">{{book.unitPrice | currency : 'INR'}}</h5>
           <p class="card-text text-truncates">{{book.description}}</p>
-          <div class="card-footer">
-            <button class="btn btn-primary float-right">Add Cart</button>
-          </div>
+          <hr />
+          <button class="btn btn-primary mt-auto align-self-end float-right">Add Cart</button>
+
         </div>
       </div>
 
