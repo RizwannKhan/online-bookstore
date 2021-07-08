@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BookCategoryComponent } from './components/book-category/book-category.component';
 import { SearchComponent } from './components/search/search.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 const routes: Routes = [
   {path: 'books/:id', component: BookDetailsComponent},
@@ -33,6 +34,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    JwPaginationModule,
+    NgbModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
