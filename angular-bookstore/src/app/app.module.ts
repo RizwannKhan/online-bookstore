@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +13,8 @@ import { BookCategoryComponent } from './components/book-category/book-category.
 import { SearchComponent } from './components/search/search.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 const routes: Routes = [
   {path: 'books/:id', component: BookDetailsComponent},
@@ -29,13 +32,17 @@ const routes: Routes = [
     PageNotFoundComponent,
     BookCategoryComponent,
     SearchComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CartStatusComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     JwPaginationModule,
     NgbModule,
+    NgxSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
     RouterModule.forRoot(routes)
   ],
   providers: [

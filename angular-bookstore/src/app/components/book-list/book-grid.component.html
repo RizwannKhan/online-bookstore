@@ -1,5 +1,8 @@
-<div class="row">
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner> -->
 
+<div class="row">
   <div class="col-md-3">
     <app-book-category></app-book-category>
   </div>
@@ -16,7 +19,7 @@
           <h5 class="pull-right">{{book.unitPrice | currency : 'INR'}}</h5>
           <p class="card-text text-truncates">{{book.description}}</p>
           <hr />
-          <button class="btn btn-primary mt-auto align-self-end float-right">Add Cart</button>
+          <button class="btn btn-primary mt-auto align-self-end float-right" (click)="addToCart(book)">Add Cart</button>
 
         </div>
       </div>
