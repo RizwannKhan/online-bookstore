@@ -15,8 +15,10 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 const routes: Routes = [
+  {path: 'cart-details', component: CartDetailsComponent},
   {path: 'books/:id', component: BookDetailsComponent},
   {path: 'books', component: BookListComponent},
   {path: 'search/:keyword', component: BookListComponent},
@@ -33,7 +35,8 @@ const routes: Routes = [
     BookCategoryComponent,
     SearchComponent,
     BookDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
   ],
   imports: [
     BrowserModule,

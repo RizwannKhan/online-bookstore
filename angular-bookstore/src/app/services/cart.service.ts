@@ -13,7 +13,7 @@ export class CartService {
 
   constructor() { }
 
-  addToCart(theCartItem: CartItem){
+  addToCart(theCartItem: CartItem) {
     //check whether the book/item is already in the cart
     let alreadyExistsInCart: boolean = false;
     let existingCartItem: CartItem = undefined;
@@ -28,7 +28,7 @@ export class CartService {
     if (alreadyExistsInCart) {
       //increament the quantity
       existingCartItem.quantity++;
-    }else{
+    } else {
       //add to the cart item array
       this.cartItems.push(theCartItem);
     }
@@ -38,7 +38,7 @@ export class CartService {
   }
 
   calculateTotalPrice() {
-    
+
     let totalPriceValue: number = 0;
     let totalQuantityValue: number = 0;
 
@@ -49,11 +49,29 @@ export class CartService {
     }
 
     console.log(`total price: ${totalPriceValue}, total quantity: ${totalQuantityValue}`);
-    
+
     //publish the events
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
 
+  }
+
+  decreamentQuantity(cartItem: CartItem) {
+    cartItem.quantity--;
+    if (cartItem.quantity == 0) {
+      this.remove(cartItem);
+    } else {
+      this.calculateTotalPrice();
+    }
+  }
+
+  remove(cartItem: CartItem) {
+    const itemIndex = this.cartItems.findIndex((tempCartItem) => tempCartItem.id === cartItem.id);
+
+    if (itemIndex > -1) {
+      this.cartItems.splice(itemIndex, 1);
+      this.calculateTotalPrice();
+    }
   }
 
 }
